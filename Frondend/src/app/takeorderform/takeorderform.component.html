@@ -1,0 +1,101 @@
+
+    <div class="container">
+    
+      
+      <div class="card">    
+        <h5 class="card-header"><b>Order From room number : </b> {{ order.email }}</h5>
+        <div class="row">
+        <div class="col-md-2 col-sm-3 text-center">
+          <img class="card-img-top" src="assets/images/chefdp.jpg"  alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <p class="card-text"><b>Diabetes :</b>  {{ order.diabetes }}</p>
+          <p class="card-text"><b>Hypertension:</b>  {{ order.hypertension }}</p>
+          
+          <p class="card-text" [ngStyle]="{'color': order.emergency? 'red' : 'green'}"><b>Emergency Delivery: </b> {{ order.emergency }}</p>
+          <p class="card-text"><b>Quantity : </b>{{ order.quantity }}</p>
+          <p class="card-text"><b>Message to Chef : </b>{{ order.message }}</p>
+          <!-- <p class="card-text"><b>Food Name : </b>{{ FoodDetails.foodname }}</p>
+          <p class="card-text"><b>Food Name : </b>{{ FoodDetails.foodname }}</p>
+          <p class="card-text"><b>Food Name : </b>{{ FoodDetails.foodname }}</p> -->
+
+          <!-- <button class="btn btn-primary" style="cursor:pointer" *ngIf="_auth.loggedIn()" (click)="takeOrder(order)" > Take Order</button> -->
+          <!-- <button class="btn btn-danger" style="cursor:pointer" *ngIf="_auth.loggedIn()"(click)="deleteChef(chef)"style="margin-left: 10px;"> Delete</button> -->
+          
+
+
+          
+        </div>
+        </div>
+        
+      
+      </div>
+      <div class="card">    
+        <h5 class="card-header"> <b>Food Details :</b> </h5>
+        <div class="row">
+        <div class="col-md-2 col-sm-3 text-center">
+          <img alt=""  [src] = 'FoodDetails.url' style="width:100px;height:100px" class="rounded-circle"  >
+          <!-- <a class="story-title" href="#"><img alt="" [src] = 'book.imageUrl' style="width:100px;height:100px" class="img-circle"></a> -->
+        </div>
+        <div class="col-md-10 col-sm-9 text-justify">
+        <div class="card-body">
+          <p class="card-text"><b>Food Item :</b>  {{ FoodDetails.foodname }}</p>
+          <p class="card-text"><b>Price :</b>  {{ FoodDetails.price }}</p>
+          <p class="card-text"><b>Cuisine:</b>  {{ FoodDetails.cuisine }}</p>
+          <p class="card-text"><b>About : </b>  {{ FoodDetails.description }}</p>
+          <!-- <button class="btn btn-primary" style="cursor:pointer" *ngIf="_auth.loggedIn()" (click)="editFood(food)" > Edit</button>
+          <button class="btn btn-danger" style="cursor:pointer" *ngIf="_auth.loggedIn()"(click)="deleteFood(food)"style="margin-left: 10px;"> Delete</button>
+     -->
+          
+        </div>
+      </div>
+        </div>
+      
+      </div>
+      <div class="card">    
+        <h5 class="card-header"> <b>Chef Responds :</b> </h5>
+             
+        <form method="POST" class="form" #userlogin="ngForm"  (ngSubmit)="Servedin()">
+            
+                      
+
+                      <!-- <div class="form-group">
+                          <input type="hidden" name="email" class="form-control item" [(ngModel)]="order.email" 
+                          id="email" #email="ngModel"  >                    
+                        
+                      </div>
+                      <div class="form-group">
+                        <input type="hidden" name="id" class="form-control item" [(ngModel)]="FoodDetails.foodname" 
+                        id="id" #id="ngModel"  >                    
+                      
+                    </div> -->
+
+                  
+
+                  <div class="form-group">
+                   <label>The Order Will Be Served in (min) <span style="color: red">*</span></label> <br>
+                    <select class="form-select form-select-lg mb-3" style="width: 50%;" name="servedin" aria-label="Quantity" [(ngModel)]="chefres.servedin" required>
+                        
+                    <option value="15" selected>15 Min</option>
+                        <option value="30">30 Min</option>
+                        <option value="45">45 Min</option>
+                        <option value="60">60 Min</option>
+
+                      </select>
+                  </div>            
+                      
+                      
+                     
+                      <div class="form-group">
+                          <button type="submit" [disabled]="userlogin.form.invalid"  class="btn btn-block create-account" id="loginBtn">Send Responds</button>
+                      </div>
+                  </form>
+
+
+        
+      
+      </div>
+      <hr>
+    
+    </div>
+    

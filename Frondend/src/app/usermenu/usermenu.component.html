@@ -1,0 +1,34 @@
+<div style=" margin-left: 32%;margin-top: 30px;">
+  <input type="button" class="btn btn-primary" style="width: 50%;"  *ngIf="_auth.loggedIn()" 
+  (click)="loggedUser()" value="Notifications" id="loginBtn"  />
+  </div>
+    
+    
+    <div class="container">
+    <div *ngFor='let food of foods'>
+      
+      <div class="card">    
+        <h5 class="card-header">{{ food.foodname }}</h5>
+        <div class="row">
+        <div class="col-md-2 col-sm-3 text-center">
+          <img alt=""  [src] = 'food.url' style="width:100px;height:100px" class="rounded-circle"  >
+          <!-- <a class="story-title" href="#"><img alt="" [src] = 'book.imageUrl' style="width:100px;height:100px" class="img-circle"></a> -->
+        </div>
+        <div class="col-md-10 col-sm-9 text-justify">
+        <div class="card-body">
+          <p class="card-text"><b>Price :</b>  {{ food.price }}</p>
+          <p class="card-text"><b>Cuisine:</b>  {{ food.cuisine }}</p>
+          <p class="card-text"><b>About : </b>  {{ food.description }}</p>
+          <button class="btn btn-primary" style="cursor:pointer" *ngIf="_auth.loggedIn()" (click)="Order(food)" > Order This</button>
+          <!-- <button class="btn btn-danger" style="cursor:pointer" *ngIf="_auth.loggedIn()"(click)="deleteFood(food)"style="margin-left: 10px;"> Delete</button> -->
+    
+          
+        </div>
+      </div>
+        </div>
+      
+      </div>
+      <hr>
+    </div>
+    </div>
+    

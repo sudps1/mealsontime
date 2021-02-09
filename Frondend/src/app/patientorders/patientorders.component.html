@@ -1,0 +1,30 @@
+
+    <div class="container">
+    <div *ngFor='let order of orders'>
+      
+      <div class="card">    
+        <h5 class="card-header"><b>Order from room number : </b> {{ order.email }}</h5>
+        <div class="row">
+        <div class="col-md-2 col-sm-3 text-center">
+          <img class="card-img-top" src="assets/images/chefdp.jpg"  alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <p class="card-text"><b>Diabetes :</b>  {{ order.diabetes }}</p>
+          <p class="card-text"><b>Hypertension:</b>  {{ order.hypertension }}</p>
+          
+          <p class="card-text" [ngStyle]="{'color': order.emergency? 'red' : 'green'}"><b>Emergency Delivery: </b> {{ order.emergency }}</p>
+          <p class="card-text"><b>Quantity : </b>{{ order.quantity }}</p>
+          <p class="card-text" [hidden]=" ! order.status"><b>Order Status : </b>Completed</p>
+
+          <button class="btn btn-primary"  style="cursor:pointer" [hidden]="order.status" *ngIf="_auth.loggedIn()" (click)="takeOrder(order)" > Take Order</button>
+          <!-- <button class="btn btn-danger" style="cursor:pointer" *ngIf="_auth.loggedIn()"(click)="deleteChef(chef)"style="margin-left: 10px;"> Delete</button> -->
+    
+          
+        </div>
+        </div>
+      
+      </div>
+      <hr>
+    </div>
+    </div>
+    

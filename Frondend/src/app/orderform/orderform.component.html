@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+      
+      <div class="col-md-12"> 
+        
+        <div class="panel">
+          <div class="panel-body">
+              <div class="registration-form">
+                  <form method="POST" id="form" #userlogin="ngForm"  (ngSubmit)="Order()">
+                      <div class="form-group">                        
+                        <h5>Please enter the details for ordering food.</h5>
+
+                      </div>
+                      <br>
+
+
+                      <div class="form-group">
+                          <input type="hidden" name="email" class="form-control item" [(ngModel)]="order.email" 
+                          id="email" #email="ngModel"  >                    
+                        
+                      </div>
+                      <div class="form-group">
+                        <input type="hidden" name="id" class="form-control item" [(ngModel)]="order.id" 
+                        id="id" #id="ngModel"  >                    
+                      
+                    </div>
+                    
+                    
+
+                  <div class="form-group">
+                    <input type="checkbox" style="width: 15px;height: 15px;"  name="diabetes" value="" [(ngModel)]="order.diabetes">
+                    <label class="label" style="font-size: large;" >Diabetes </label>       
+                  </div>
+
+                  <div class="form-group">
+                    <input type="checkbox" style="width: 15px;height: 15px;" name="hypertension" value="" [(ngModel)]="order.hypertension">
+                    <label class="label" style="font-size: large;" >Hypertension </label>         
+                  </div>
+                
+                  <div class="form-group">   
+                                     
+                    <input type="checkbox" style="width: 15px;height: 15px;" name="emergency" value="" [(ngModel)]="order.emergency">
+                    <label class="label" style="font-size: large;color:brown;">Emergency Delivery (Please Dont Miss Use) </label>                    
+                  </div>
+
+                  <div class="form-group">
+                   <label>Quantity <span style="color: red">*</span></label> <br> <select class="form-select form-select-lg mb-3" style="width: 50%;" name="quantity" aria-label="Quantity" [(ngModel)]="order.quantity" required>
+                        
+                    <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-text">Custom Message to Chef</span>
+                        <textarea class="form-control" name="message" aria-label="With textarea" [(ngModel)]="order.message "></textarea>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="hidden" name="status" class="form-control item" [(ngModel)]="order.status" 
+                      id="id" #id="ngModel"  >       
+                  </div>
+                      
+                      
+                     
+                      <div class="form-group">
+                          <button type="submit" [disabled]="userlogin.form.invalid"  class="btn btn-block create-account" id="loginBtn">Order Food</button>
+                      </div>
+                  </form>
+              </div>
+            
+            
+            
+            
+            
+          
+            
+          </div>
+        </div>
+                                                                                         
+                                                      
+                                                        
+         </div><!--/col-12-->
+    </div>
+  </div>
+          

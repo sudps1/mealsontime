@@ -1,0 +1,29 @@
+<div style=" margin-left: 32%;margin-top: 30px;">
+<input type="button" class="btn btn-primary" style="width: 50%;"  *ngIf="_auth.loggedIn()" 
+(click)="loggedUser()" value="Add Chef" id="loginBtn" onclick="location.href='addchef'" />
+</div>
+<div class="container">
+<div *ngFor='let chef of chefs'>
+  
+  <div class="card">    
+    <h5 class="card-header">{{ chef.fullname }}</h5>
+    <div class="row">
+    <div class="col-md-2 col-sm-3 text-center">
+      <img class="card-img-top" src="assets/images/chefdp.jpg"  alt="Card image cap">
+    </div>
+    <div class="card-body">
+      <p class="card-text"><b>Chef ID :</b>  {{ chef.chefid }}</p>
+      <p class="card-text"><b>Email ID :</b>  {{ chef.email }}</p>
+      <p class="card-text"><b>Mobile Number : </b>  {{ chef.mobno }}</p>
+      <p class="card-text"><b>Preset Password : </b>{{ chef.password }}</p>
+      <button class="btn btn-primary" style="cursor:pointer" *ngIf="_auth.loggedIn()" (click)="editChef(chef)" > Edit</button>
+      <button class="btn btn-danger" style="cursor:pointer" *ngIf="_auth.loggedIn()"(click)="deleteChef(chef)"style="margin-left: 10px;"> Delete</button>
+
+      
+    </div>
+    </div>
+  
+  </div>
+  <hr>
+</div>
+</div>

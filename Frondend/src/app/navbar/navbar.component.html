@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+	<a class="navbar-brand" href="/">
+        <img src="assets/images/logofinal.png" width="75" height="65" alt="">
+      </a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{ 'show': isCollapsed }">
+    <ul class="navbar-nav mr-auto navbar-right ">
+      <li class="nav-item active">
+		    <a class="nav-link " href="/">Meals 'ON' Time<br> In-Patient Food Delivery System <span class="sr-only">(current)</span></a>        
+      </li>
+      
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right ">
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="" >Home</a>
+      </li>
+      
+        <li class="nav-item" >
+          <a class="nav-link" routerLink="signup" >Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login" *ngIf="!_auth.loggedIn()">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="cheflogin" *ngIf="!_auth.loggedIn()">Chef Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="adminlogin" *ngIf="!_auth.loggedIn()" >Admin Login</a>
+          </li>       
+          <li class="nav-item">
+            <a *ngIf="_auth.loggedIn()" class="nav-link"  (click)="logoutUser()">Logout</a>
+          </li>
+      </ul>
+
+  </div>
+</nav>
